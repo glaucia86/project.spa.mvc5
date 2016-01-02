@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Tutorial - SPA com MVC 5";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/App/CrudApp.js"></script>
+}
+
+<!--Seção de scripts definidas pelo RenderSection através do arquivo _Layout.cshtml na pasta Shared-->
+@section styles {
+    <style>
+        body {
+            margin: 50px;
+        }
+    </style>
+}
+
+<!--Usando o Bootstrap!!! =) -->
+<section id="conteudo" class="container">
+    <div class="form-group">
+        <section id="formulario">
+            <!-- Formulário da nossa página para poder adicionar e atualizar uma determinada pessoa -->
+            <form action="/" method="post" id="formDados">
+
+                <!---Esse input do tipo "hidden" estamos usando somente com a finalidade de armazenar o Id-->
+                <input type="hidden" id="idProduto" name="ProdutoId" />
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="nome">Produto</label>
+                        <input type="text" id="nome" class="form-control" name="Nome" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <label for="preco">Preço</label>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="preco">R$</span>
+                            <input type="text" id="preco" class="form-control" name="Preco" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <label for="dataCadastro">Data de Cadastro</label>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon glyphicon glyphicon-calendar"></span>
+                            <input type="date" id="dataCadastro" class="form-control" name="dataCadastro" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade</label>
+                        <input type="number" id="quantidade" class="form-control" name="Quantidade" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <button id="salvar" class="btn btn-success btn-sm" onclick=" Cadastrar() "><span class="glyphicon glyphicon-plus"></span>&nbspCadastrar</button>
+                        <button id="atualizar" class="btn btn-warning btn-sm hidden" onclick=" Atualizar() "><span class="glyphicon glyphicon-pencil">&nbspAtualizar</span></button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <!--Criação da tabela-->
+    <section id="listagemDeProdutos">
+            <table class="table table-striped" id="tabela">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome do Produto</th>
+                        <th>Preço</th>
+                        <th>Data de Cadastro</th>
+                        <th>Quantidade</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!--Esse id contendo o "tbody" é o que realizará o preenchimento da nossa tabela através do JQuery-->
+                <tbody id="tbody"></tbody>
+            </table>
+    </section>
+</section>
+
