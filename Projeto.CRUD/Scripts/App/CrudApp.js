@@ -143,6 +143,7 @@ function LimparFormulario() {
 function somenteLetras(e) {
 
     var regex = /[0-9]/;
+
     if (regex.test(String.fromCharCode(e.keyCode))) {
         return false;
     } else {
