@@ -138,3 +138,14 @@ function LimparFormulario() {
         this.reset();
     });
 }
+
+//Função que não permite número no campo "Nome":
+function somenteLetras(e) {
+
+    var regex = /[0-9]/;
+    if (regex.test(String.fromCharCode(e.keyCode))) {
+        return false;
+    } else {
+        return true;
+    }
+}

@@ -26,13 +26,15 @@
                 <!---Esse input do tipo "hidden" estamos usando somente com a finalidade de armazenar o Id-->
                 <input type="hidden" id="idProduto" name="ProdutoId" />
 
+                <!--Fiz a chamada da função "somenteLetras" para que não permita entrada de número no campo "Nome"-->
                 <div class="row">
                     <div class="form-group">
                         <label for="nome">Produto</label>
-                        <input type="text" id="nome" class="form-control" name="Nome" />
+                        <input type="text" id="nome" class="form-control" name="Nome" onkeypress="return somenteLetras(event)" autofocus />
                     </div>
                 </div>
 
+                <!--Usei o atributo "step" com o objetivo de validar o campo "Preço" como sendo decimal-->
                 <div class="row">
                     <div class="form-group">
                         <div class="input-group">
@@ -40,7 +42,7 @@
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="preco">R$</span>
-                            <input type="text" id="preco" class="form-control" name="Preco" />
+                            <input type="number" step="any" id="preco" class="form-control" name="Preco" />
                         </div>
                     </div>
                 </div>
